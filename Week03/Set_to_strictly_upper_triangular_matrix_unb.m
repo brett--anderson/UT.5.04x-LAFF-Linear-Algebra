@@ -1,3 +1,4 @@
+
 % Copyright 2016 The University of Texas at Austin
 %
 % For licensing information see
@@ -6,7 +7,7 @@
 % Programmed by: Name of author
 %                Email of author
 
-function [ A_out ] = Set_to_identity_unb( A )
+function [ A_out ] = Set_to_strictly_upper_triangular_matrix_unb( A )
 
   [ ATL, ATR, ...
     ABL, ABR ] = FLA_Part_2x2( A, ...
@@ -20,10 +21,12 @@ function [ A_out ] = Set_to_identity_unb( A )
                                                     ABL, ABR, ...
                                                     1, 1, 'FLA_BR' );
 
-    a01 = laff_zerov ( a01 );
-    alpha11 = laff_onev( alpha11 );
-    a21 = laff_zerov( a21 );
-    
+    %------------------------------------------------------------%
+
+    a10t = laff_zerov(a10t);
+    alpha11 = laff_zerov(alpha11);
+
+    %------------------------------------------------------------%
 
     [ ATL, ATR, ...
       ABL, ABR ] = FLA_Cont_with_3x3_to_2x2( A00,  a01,     A02,  ...

@@ -7,7 +7,7 @@
 % Programmed by: Name of author
 %                Email of author
 
-function [ A_out ] = Set_to_diagonal_matrix_unb( A )
+function [ A_out ] = Set_to_upper_triangular_m_unb( A )
 
   [ ATL, ATR, ...
     ABL, ABR ] = FLA_Part_2x2( A, ...
@@ -21,7 +21,11 @@ function [ A_out ] = Set_to_diagonal_matrix_unb( A )
                                                     ABL, ABR, ...
                                                     1, 1, 'FLA_BR' );
 
-   
+    %------------------------------------------------------------%
+
+    a10t = laff_zerov(a10t);
+
+    %------------------------------------------------------------%
 
     [ ATL, ATR, ...
       ABL, ABR ] = FLA_Cont_with_3x3_to_2x2( A00,  a01,     A02,  ...
